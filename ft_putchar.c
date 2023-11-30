@@ -1,9 +1,8 @@
 
-
 # include "printf.h"
 
-void    ft_putchar(char c, size_t len)
+int	ft_putchar(char c)
 {
-    write(1, &c, 1);
-    len++;
+	write(1, &c, 1);
+	return (1);
 }

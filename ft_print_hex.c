@@ -18,4 +18,5 @@ int	ft_print_hex(unsigned int nb)
 	{
 		count += ft_putchar(ptr[nb]);
 	}
+	return 1;
 }

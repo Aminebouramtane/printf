@@ -2,27 +2,29 @@
 
 # include "printf.h"
 
-void ft_putnbr(int nb, size_t len)
+int	ft_putnbr(int n)
 {
-	if (nb ==  -2147483648)
+	int count;
+
+	count = 0;
+	if (n == -2147483648)
 	{
-		ft_putchar("-", len);
-		ft_putnbr(2147483648, len);
+		count += write(1, "-2147483648", 11);
 	}
-	else if (nb >= 0 && nb <= 9)
+	else if (n >= 0 && n <= 9)
 	{
-		nb = nb + '0';
-		ft_putchar(nb, len);
+		count += ft_putchar(n + '0');
 	}
-	else if (nb > 9)
+	else if (n > 9)
 	{
-		ft_putnbr(nb / 10, len);
-		ft_putnbr(nb % 10, len);
+		count += ft_putnbr(n / 10);
+		count += ft_putnbr(n % 10);
 	}
-	else if (nb < 0)
+	else if (n < 0)
 	{
-		nb *= -1;
-		ft_putchar('-', len);
-		ft_putnbr(nb, len);
+		count += write(1, "-", 1);
+		count +=  ft_putnbr(n * -1);
 	}
+	// printf("=====> %d\n", count);
+	return (count);
 }

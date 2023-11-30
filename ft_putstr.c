@@ -2,21 +2,17 @@
 
 #include "printf.h"
 
-char    *ft_putstr(char *str, size_t len)
+int    ft_putstr(char *str)
 {
     size_t  i;
 
     i = 0;
     if (!str)
-        ft_putstr("(null)", len);
-    else
+        return ft_putstr("(null)");
+    while (str[i])
     {
-        while (str[i])
-        {
-            ft_puchar(str[i], len);
-            i++;
-        }
-        
+        ft_putchar(str[i]);
+        i++;
     }
-    return (str);
+    return (i);
 }
