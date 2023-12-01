@@ -3,7 +3,8 @@ NAME = libftprintf.a
 
 FILES = ft_putchar.c	\
 		ft_putstr.c		\
-		ft_putnbr.c
+		ft_putnbr.c		\
+		ft_print_hex.c
 
 O_FILES = $(FILES:%.c=%.o)
 
