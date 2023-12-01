@@ -4,7 +4,11 @@ NAME = libftprintf.a
 FILES = ft_putchar.c	\
 		ft_putstr.c		\
 		ft_putnbr.c		\
-		ft_print_hex.c
+		ft_print_hex.c	\
+		ft_print_u.c	\
+		ft_print_hex_lower.c	\
+		ft_print_hex_upper.c \
+		ft_printf.c
 
 O_FILES = $(FILES:%.c=%.o)
 

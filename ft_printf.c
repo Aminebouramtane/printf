@@ -1,7 +1,7 @@
 
 
 
-# include "printf.h"
+# include "ft_printf.h"
 
 static int ft_check_if(char c, va_list list)
 {
@@ -14,6 +14,14 @@ static int ft_check_if(char c, va_list list)
 		counter += ft_putstr(va_arg(list, char *));
 	else if (c == 'd' || c == 'i')
 		counter += ft_putnbr(va_arg(list, int));
+	else if (c == 'u')
+		counter += ft_print_u(va_arg(list, unsigned int));
+	else if (c == 'x')
+		counter += ft_print_hex_lower(va_arg(list, int));
+	else if (c == 'X')
+		counter += ft_print_hex_upper(va_arg(list, int));
+	else if (c == '%')
+		counter += ft_putchar('%');
 	else if (c == 'p')
 	{
 		counter += ft_putstr("0x");
@@ -48,14 +56,13 @@ int ft_printf(const char *format, ...)
 	return (count);
 }
 
-int main ()
-{
-	// int c = 4;
-	int s = 4;
-	// printf("%d",(unsigned int)c);
-	ft_printf("%p\n", &s);
-	printf("%p\n", &s);
-
-	// printf("%d\n", a);
-	// printf("%d\n", b);
-}
+// int main ()
+// {
+// 	// int c = 4;
+// 	// int s = 43434;
+// 	// printf("%d",(unsigned int)c);
+// 	ft_printf("%%%%%%%%\n");
+// 	printf("%%%%%%%%\n");
+// 	// printf("%d\n", a);
+// 	// printf("%d\n", b);
+// }
