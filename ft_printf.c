@@ -1,11 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abouramt <abouramt@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/02 14:20:59 by abouramt          #+#    #+#             */
+/*   Updated: 2023/12/02 14:24:38 by abouramt         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "ft_printf.h"
 
-
-# include "ft_printf.h"
-
-static int ft_check_if(char c, va_list list)
+static int	ft_check_if(char c, va_list list)
 {
-	int counter;
+	int		counter;
 
 	counter = 0;
 	if (c == 'c')
@@ -17,9 +26,9 @@ static int ft_check_if(char c, va_list list)
 	else if (c == 'u')
 		counter += ft_print_u(va_arg(list, unsigned int));
 	else if (c == 'x')
-		counter += ft_print_hex_lower(va_arg(list, int));
+		counter += ft_print_hex_lower(va_arg(list, unsigned int));
 	else if (c == 'X')
-		counter += ft_print_hex_upper(va_arg(list, int));
+		counter += ft_print_hex_upper(va_arg(list, unsigned int));
 	else if (c == '%')
 		counter += ft_putchar('%');
 	else if (c == 'p')
@@ -30,7 +39,7 @@ static int ft_check_if(char c, va_list list)
 	return (counter);
 }
 
-int ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
 	va_list	ap;
 	int		count;
@@ -47,22 +56,9 @@ int ft_printf(const char *format, ...)
 			count += ft_check_if(format[i], ap);
 		}
 		else
-		{
 			count += ft_putchar(format[i]);
-		}
 		i++;
 	}
 	va_end(ap);
 	return (count);
 }
-
-// int main ()
-// {
-// 	// int c = 4;
-// 	// int s = 43434;
-// 	// printf("%d",(unsigned int)c);
-// 	ft_printf("%%%%%%%%\n");
-// 	printf("%%%%%%%%\n");
-// 	// printf("%d\n", a);
-// 	// printf("%d\n", b);
-// }
