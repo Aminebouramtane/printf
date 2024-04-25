@@ -24,13 +24,13 @@ This will compile the `libftprintf.a` library.
 Format Specifiers
 The ft_printf function supports the following format specifiers:
 
-%c: Character
-%s: String
-%d, %i: Signed decimal integer
-%u: Unsigned decimal integer
-%x, %X: Unsigned hexadecimal integer (lowercase or uppercase)
-%p: Pointer address
-%%: Percent sign
+- `%c`: Character
+- `%s`: String
+- `%d`, `%i`: Signed decimal integer
+- `%u`: Unsigned decimal integer
+- `%x`,`%X`: Unsigned hexadecimal integer (lowercase or uppercase)
+- `%p`: Pointer address
+- `%%`: Percent sign
 
 Example usage:
 ```c
